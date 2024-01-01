@@ -1,0 +1,96 @@
+
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 80% 50%;
+    background-image: url(./background.jpg);
+}
+
+
+#carteContainer {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.carte {
+    text-align: center;
+    margin-top: 10px;
+    padding: 0px;
+    border: 2px #1e2328 solid;
+    box-shadow: 0px 9px 10px 0px #000;
+    border-radius: 5px;
+    transition: 100ms;
+}
+
+img {
+    box-shadow: inset 5px 5px 5px 0px #000;
+    border-radius: 5px;
+}
+
+.carte:hover{
+    box-shadow: 0px 9px 10px 2px #000;
+    border: 2px #efe6d1 solid;
+    transform: scale(0.95);
+    transition: 100ms;
+}
+
+#btn{
+    background-color: #1e2328;
+    position: fixed;
+    bottom: 50px;
+    left: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: 2px #01698c solid;
+    box-shadow: 2px 5px 10px 0px #000;
+    text-align: center;
+    align-items: center;
+    display: flex;
+
+}
+
+#btn:hover {
+    background-color: #1e2328;
+    color: #fff;
+    border: 2px #08bab6 solid;
+
+}
+
+#undo{
+    background-color: #1e2328;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: 2px #01698c solid;
+    box-shadow: 2px 5px 10px 0px #000;
+    text-align: center;
+    align-items: center;
+    display: flex;
+
+}
+
+#undo:hover {
+    background-color: #1e2328;
+    color: #fff;
+    border: 2px #08bab6 solid;
+
+}
+
+
+.invisible {
+    display: none;
+}
