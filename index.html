@@ -1,21 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Champion Cards</title>
-    <link rel="stylesheet" href="./style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="./assets/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#000" />
+    <title>Antidle</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"
+    />
+  </head>
+  <body>
+
+    <nav class="container-fluid">
+        <div class="row">
+
+            <div class="col">
+                <div id="gender" class="dropdown-check-list" tabindex="100">
+                <span class="anchor gender">Gender</span>
+                <ul class="list">
+                  <li><input type="checkbox" value="male"/>Male</li>
+                  <li><input type="checkbox" value="female"/>Female</li>
+                  <li><input type="checkbox" value="other"/>Other</li>
+                </ul>
+                </div>
+            </div>
+
+            <div class="col">
+                <div id="position" class="dropdown-check-list" tabindex="100">
+                <span class="anchor position">Position</span>
+                <ul class="list">
+                  <li><input type="checkbox" value="top"/>Top</li>
+                  <li><input type="checkbox" value="jungle"/>Jungle</li>
+                  <li><input type="checkbox" value="mid"/>Mid</li>
+                  <li><input type="checkbox" value="bottom"/>Bottom</li>
+                  <li><input type="checkbox" value="support"/>Support</li>
+                </ul>
+                </div>
+            </div>
+
+            <div class="col">
+                <div id="species" class="dropdown-check-list" tabindex="100">
+                <span class="anchor species">Species</span>
+                <ul class="list">
+                  <li><input type="checkbox" value="aspect"/>Aspect</li>
+                  <li><input type="checkbox" value="celestial"/>Celestial</li>
+                  <li><input type="checkbox" value="chemically"/>Chemically Altered</li>
+                  <li><input type="checkbox" value="cyborg"/>Cyborg</li>
+                  <li><input type="checkbox" value="demon"/>Demon</li>
+                  <li><input type="checkbox" value="dragon"/>Dragon</li>
+                  <li><input type="checkbox" value="god"/>God</li>
+                  <li><input type="checkbox" value="god-Warrior"/>God-Warrior</li>
+                  <li><input type="checkbox" value="golem"/>Golem</li>
+                  <li><input type="checkbox" value="human"/>Human</li>
+                  <li><input type="checkbox" value="iceborn"/>Iceborn</li>
+                  <li><input type="checkbox" value="magically"/>Magically Altered</li>
+                  <li><input type="checkbox" value="magicborn"/>Magicborn</li>
+                  <li><input type="checkbox" value="revenant"/>Revenant</li>
+                  <li><input type="checkbox" value="spirit"/>Spirit</li>
+                  <li><input type="checkbox" value="spiritualist"/>Spiritualist</li>
+                  <li><input type="checkbox" value="undead"/>Undead</li>
+                  <li><input type="checkbox" value="unknown"/>Unknown</li>
+                  <li><input type="checkbox" value="vastayan"/>Vastayan</li>
+                  <li><input type="checkbox" value="void"/>Void</li>
+                  <li><input type="checkbox" value="yordle"/>Yordle</li>
+                  <li><input type="checkbox" value="otherSpecies"/>Other</li>
+                </ul>
+                </div>
+            </div>
+
+            <div class="col">
+                <div id="resource" class="dropdown-check-list" tabindex="100">
+                <span class="anchor resource">Resource</span>
+                <ul class="list">
+                  <li><input type="checkbox" value="Mana"/>Mana</li>
+                  <li><input type="checkbox" value="Manaless"/>Manaless</li>
+                  <li><input type="checkbox" value="Energy"/>Energy</li>
+                  <li><input type="checkbox" value="Health costs"/>Health costs</li>
+                  <li><input type="checkbox" value="Fury"/>Fury</li>
+                  <li><input type="checkbox" value="Rage"/>Rage</li>
+                  <li><input type="checkbox" value="otherResource"/>Other</li>
+                </ul>
+                </div>
+            </div>
+
+            <div class="col">
+                <div id="range" class="dropdown-check-list" tabindex="100">
+                <span class="anchor">Range Type</span>
+                <ul class="list">
+                  <li><input type="checkbox" value="Melee"/>Melee</li>
+                  <li><input type="checkbox" value="Range"/>Range</li>
+                  <li><input type="checkbox" value="mixed"/>Mixed</li>
+                </ul>
+                </div>
+            </div>
+
+            <div class="col">
+                <div id="region" class="dropdown-check-list" tabindex="100">
+                <span class="anchor region">Region</span>
+                <ul class="list">
+                  <li><input type="checkbox" value="bandle"/>Bandle City</li>
+                  <li><input type="checkbox" value="bilgewater"/>Bilgewater</li>
+                  <li><input type="checkbox" value="camavor"/>Camavor</li>
+                  <li><input type="checkbox" value="demacia"/>Demacia</li>
+                  <li><input type="checkbox" value="freljord"/>Freljord</li>
+                  <li><input type="checkbox" value="icathia"/>Icathia</li>
+                  <li><input type="checkbox" value="ionia"/>Ionia</li>
+                  <li><input type="checkbox" value="ixtal"/>Ixtal</li>
+                  <li><input type="checkbox" value="noxus"/>Noxus</li>
+                  <li><input type="checkbox" value="piltover"/>Piltover</li>
+                  <li><input type="checkbox" value="shadow Isles"/>Shadow Isles</li>
+                  <li><input type="checkbox" value="shurima"/>Shurima</li>
+                  <li><input type="checkbox" value="targon"/>Targon</li>
+                  <li><input type="checkbox" value="void"/>Void</li>
+                  <li><input type="checkbox" value="zaun"/>Zaun</li>
+                  <li><input type="checkbox" value="runeterra"/>Runeterra</li>
+                </ul>
+                </div>
+            </div>
+
+            <div class="col">
+                <div id="released" class="dropdown-check-list" tabindex="100">
+                <span class="anchor released">Released</span>
+                <ul class="list">
+                  <li><input type="checkbox" value="2009"/>2009</li>
+                  <li><input type="checkbox" value="2010"/>2010</li>
+                  <li><input type="checkbox" value="2011"/>2011</li>
+                  <li><input type="checkbox" value="2012"/>2012</li>
+                  <li><input type="checkbox" value="2013"/>2013</li>
+                  <li><input type="checkbox" value="2014"/>2014</li>
+                  <li><input type="checkbox" value="2015"/>2015</li>
+                  <li><input type="checkbox" value="2016"/>2016</li>
+                  <li><input type="checkbox" value="2017"/>2017</li>
+                  <li><input type="checkbox" value="2018"/>2018</li>
+                  <li><input type="checkbox" value="2019"/>2019</li>
+                  <li><input type="checkbox" value="2020"/>2020</li>
+                  <li><input type="checkbox" value="2021"/>2021</li>
+                  <li><input type="checkbox" value="2022"/>2022</li>
+                  <li><input type="checkbox" value="2023"/>2023</li>
+
+
+                </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+      
     <section class="container-fluid">
-        <div id="carteContainer"></div>
-        <button id="undo">UNDO</button>
-        <button id="btn">RESET</button>
+      <div id="carteContainer"></div>
+      <button id="undo">UNDO</button>
+      <button id="btn">RESET</button>
     </section>
 
     <script src="./script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</body>
+  </body>
 </html>

@@ -167,8 +167,72 @@ var pictureUrls = [
     "./champions/zyra.jpg",
 ];
 
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv NAV DROPDOWN vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
+var checkListGender = document.getElementById('gender');
+checkListGender.getElementsByClassName('gender')[0].onclick = function(evt) {
+  if (checkListGender.classList.contains('visible')) {
+    checkListGender.classList.remove('visible');
+  } else{
+    checkListGender.classList.add('visible');
+  }
+}
 
+var checkListPosition = document.getElementById('position');
+checkListPosition.getElementsByClassName('position')[0].onclick = function(evt) {
+  if (checkListPosition.classList.contains('visible')){
+    checkListPosition.classList.remove('visible');
+  } else {
+    checkListPosition.classList.add('visible');
+  }
+}
 
+var checkListSpecies = document.getElementById('species');
+checkListSpecies.getElementsByClassName('species')[0].onclick = function(evt) {
+  if (checkListSpecies.classList.contains('visible')){
+    checkListSpecies.classList.remove('visible');
+  } else {
+    checkListSpecies.classList.add('visible');
+  }
+}
+
+var checkListResource = document.getElementById('resource');
+checkListResource.getElementsByClassName('resource')[0].onclick = function(evt) {
+  if (checkListResource.classList.contains('visible')){
+    checkListResource.classList.remove('visible');
+  } else {
+    checkListResource.classList.add('visible');
+  }
+}
+
+var checkListRange = document.getElementById('range');
+checkListRange.getElementsByClassName('anchor')[0].onclick = function(evt) {
+  if (checkListRange.classList.contains('visible')){
+    checkListRange.classList.remove('visible');
+  } else {
+    checkListRange.classList.add('visible');
+  }
+}
+
+var checkListRegion = document.getElementById('region');
+checkListRegion.getElementsByClassName('region')[0].onclick = function(evt) {
+  if (checkListRegion.classList.contains('visible')){
+    checkListRegion.classList.remove('visible');
+  } else {
+    checkListRegion.classList.add('visible');
+  }
+}
+
+var checkListReleased = document.getElementById('released');
+checkListReleased.getElementsByClassName('released')[0].onclick = function(evt) {
+  if (checkListReleased.classList.contains('visible')){
+    checkListReleased.classList.remove('visible');
+  } else {
+    checkListReleased.classList.add('visible');
+  }
+}
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ NAV DROPDOWN ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
+
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv CARTES vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
 
 var carteContainer = document.getElementById("carteContainer");
 let btn = document.querySelector("#btn");
@@ -184,6 +248,10 @@ for (var i = 0; i < 166; i++) {
     console.log("Il y a " + (i + 1) + " champions.")
 }
 
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ CARTES ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
+
+
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv RESET UNDO vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
 const allCardsArr = document.querySelectorAll(".carte");
 
 btn.addEventListener('click', function () {
@@ -209,3 +277,5 @@ allCardsArr.forEach(function(carte, i) {
 undo.addEventListener('click', function(){
     lastDelete.classList.remove('invisible');
 })
+
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ RESET UNDO ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
