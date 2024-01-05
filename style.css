@@ -3,34 +3,68 @@
   src: url(./assets/font/Friz_Quadrata_Bold.otf) format("opentype");
 }
 @font-face {
-  font-family: "Beaufort";
-  src: url(./assets/font/BeaufortforLOL-HeavyItalic.ttf) format("opentype");
+  font-family: "Beaufort-heavy";
+  src: url(./assets/font/BeaufortforLOL-Heavy.ttf) format("opentype");
 }
 @font-face {
   font-family: "Beaufort-bold";
   src: url(./assets/font/BeaufortforLOL-Bold.ttf) format("opentype");
 }
 
-.container-fluid{
-  font-family: Beaufort-bold;
+html, body {
+  margin: 0;
+  position: relative;
 }
 
 body {
+  height: 100%;
+  position: relative;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 80% 50%;
   background-image: url(./assets/background.jpg);
+  margin: 0;
 }
 
-nav {
-  background-color: #010A13;
-  height: 50px;
+nav /*ET NAV */{
+  font-family: 'Beaufort-bold', sans-serif;
+  user-select: none;
+  height: 52px;
+  padding: 0px;
+  background-color: #020e1b;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
+.menu /*ET ROW */{
+  width: 100%;
+  align-content: center;
+}
+
+.fond-invisible {
+  position: absolute;
+  background-color: #000;
+  z-index: 2;
+  width: 100%;
+  min-height: 100%;
+  opacity: 0.25;
+  height: 100vh;
+}
+
 .list {
   position: relative;
-  background-color: #010A13;
+  background: linear-gradient(to right, #010A13, #021222);
   z-index: 1;
+}
+
+label {
+  width: 100%;
+
+  border-radius: 2px;
 }
 
 li {
@@ -38,18 +72,18 @@ li {
   padding: 5px;
 }
 
+.dropdown-check-list .list li input {
+  margin-right: 5px; /* Ajoutez de la marge à droite du checkbox */
+}
+
 .anchor {
   color: #F0E6D2;
   width: 100%;
-  padding: 0px;
 }
+
 .dropdown {
   float: left;
   overflow: hidden;
-}
-
-.dropdown-check-list {
-  display: inline-block;
 }
 
 .dropdown-check-list .anchor {
@@ -109,47 +143,127 @@ li {
   gap: 5px;
 }
 
-.carte {
-  text-align: center;
-  margin-top: 10px;
-  padding: 0px;
-  border: 2px #1e2328 solid;
-  box-shadow: 0px 9px 10px 0px #000;
-  border-radius: 5px;
-
-  transition: 100ms;
-}
-
 img {
   box-shadow: inset 5px 5px 5px 0px #000;
   border-radius: 5px;
-  width: 200px;
+  width: 250px;
+  height: 282px !important;
+  padding: 0px;
+  margin: 0px;
   z-index: 0;
+  height: 100%;
+  transition: filter 500ms ease-out;
+  user-select: none;
 }
 
-.carte:hover {
-  box-shadow: 0px 9px 10px 2px #000;
+.in-front {
+  z-index: 2 !important;
+  position: relative;
+}
+
+.flip-card {
+  text-align: center;
+  background-color: transparent;
+  margin-top: 10px;
+  height: 286px;
+  padding: 0px;
+  width: 254px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 500ms;
+  box-shadow: 0px 9px 10px 0px #000;
+  border-radius: 5px;
+  border: 2px #1e2328 solid;
+  cursor: pointer;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+  transition: transform 500ms;
   border: 2px #efe6d1 solid;
-  transform: scale(0.95);
-  transition: 100ms;
 }
 
-#btn {
+.flip-card-front,
+.flip-card-back {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #020e1b;
+  color: white;
+  transform: rotateY(180deg);
+  top: 0px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+p{
+  font-family: 'Beaufort-bold', sans-serif;
+  color: #b1a48c;
+  vertical-align: super;
+  font-size: 19px;
+  margin: 0px !important; 
+  padding-left: 6px;
+  text-align: left;
+  user-select: none;
+}
+
+h1 {
+  font-family: 'Beaufort-heavy', sans-serif;
+  color: #f0e6d2 !important;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  translate: -50% -50%;
+  font-size: 25px !important;
+  user-select: none;
+
+}
+.bouton {
   background-color: #1e2328;
-  position: fixed;
-  bottom: 50px;
-  left: 50px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  font-weight: bold;
   color: #fff;
-  padding: 5px 20px;
-  border-radius: 10px;
-  border: 2px #01698c solid;
-  box-shadow: 2px 5px 10px 0px #000;
+  font-size: 20px;
+  bottom: 40px;
+  position: fixed;
   text-align: center;
   align-items: center;
   display: flex;
+  box-shadow: 2px 5px 10px 0px #000;
+  border: 2px #01698c solid;
+  padding: 5px 20px;
+  border-radius: 10px;
+  font-family: "Beaufort-heavy";
+}
+
+#remain {
+  left: 50%;
+  translate: -50px 0%;
+}
+
+#btn {
+  left: 20px;
 }
 
 #btn:hover {
@@ -159,21 +273,7 @@ img {
 }
 
 #undo {
-  background-color: #1e2328;
-  position: fixed;
-  bottom: 50px;
-  right: 50px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  font-weight: bold;
-  color: #fff;
-  padding: 5px 20px;
-  border-radius: 10px;
-  border: 2px #01698c solid;
-  box-shadow: 2px 5px 10px 0px #000;
-  text-align: center;
-  align-items: center;
-  display: flex;
+  right: 20px;
 }
 
 #undo:hover {
@@ -182,6 +282,14 @@ img {
   border: 2px #08bab6 solid;
 }
 
-.invisible {
+.none {
   display: none;
+}
+.displayNone {
+  display: none;
+}
+
+.false {
+  opacity: 0.8;
+  filter:grayscale(1);
 }
