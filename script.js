@@ -1141,7 +1141,7 @@ let listOfChampions = {
     RangeType: "Melee",
     Region: "Noxus",
     Released: 2020,
-    img: "./champions/RiotX_ChampionList_rell.jpg",
+    img: "./champions/RiotX_ChampionList_Rell.jpg",
   },
   "RenataGlasc": {
     Name: "Renata Glasc",
