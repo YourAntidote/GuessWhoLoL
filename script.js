@@ -1341,6 +1341,17 @@ let listOfChampions = {
     Released: 2011,
     img: "./champions/RiotX_ChampionList_skarner.jpg",
   },
+  "Smolder": {
+    Name: "Smolder",
+    Gender: "Male",
+    Position: "Mid, Bottom",
+    Species : "Dragon",
+    Resource: "Mana ",
+    RangeType: "Ranged",
+    Region: "Noxus, Camavor",
+    Released: 2024,
+    img: "./champions/RiotX_ChampionList_smolder_v2.jpg",
+  },
   "Sona": {
     Name: "Sona",
     Gender: "Female",
