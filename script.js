@@ -120,6 +120,17 @@ let listOfChampions = {
     Released: 2016,
     img: "./champions/RiotX_ChampionList_aurelionsol.jpg",
   },
+  "Aurora": {
+    Name: "Aurora",
+    Gender: "Female",
+    Position: "Top, Middle",
+    Species: "Vastayan, Magicborn",
+    Resource: "Mana ",
+    RangeType: "Melee",
+    Region: "Freljord, Ionia",
+    Released: 2024,
+    img: "./champions/aurora.jpg",
+  },
   "Azir": {
     Name: "Azir",
     Gender: "Male",
@@ -1337,7 +1348,7 @@ let listOfChampions = {
     Species : "Brackern, Other species",
     Resource: "Mana ",
     RangeType: "Melee",
-    Region: "Shurima",
+    Region: "Ixtal",
     Released: 2011,
     img: "./champions/RiotX_ChampionList_skarner.jpg",
   },
@@ -1848,12 +1859,6 @@ let listOfChampions = {
   }*/
 }
 
-if (listOfChampions["Hecarim"].Region.includes("Shadow")) {
-  // code
-  console.log("Yes, I am from the Shadow Isles");
-} else {
-  console.log("No, I am not from that region");
-}
 
 var pictureUrls = [
   "./champions/aatrox.jpg",
@@ -2035,6 +2040,7 @@ let checkBoxArr = document.querySelectorAll('.checkbox');
 let orderOfCards = Object.keys(listOfChampions);
 let lastDelete;
 let deletedCardArr = [];
+let LiArr = document.querySelectorAll('li');
 
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  VARIABLES ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv CARTES vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
@@ -2110,13 +2116,13 @@ for (const champion in listOfChampions) {
     p_position.innerHTML += listOfChampions[champion]["Position"];
   }
   if (listOfChampions[champion]["Species"].includes("Other species")){
-    listOfChampions[champion]["Species"] = listOfChampions[champion]["Species"].replace('Other species', 'Other species');
+    listOfChampions[champion]["Species"] = listOfChampions[champion]["Species"].replace('Other species', '');
     p_species.innerHTML += listOfChampions[champion]["Species"];
   } else {
     p_species.innerHTML += listOfChampions[champion]["Species"];
   }
   if (listOfChampions[champion]["Resource"].includes("Other resources")){
-    listOfChampions[champion]["Resource"] = listOfChampions[champion]["Resource"].replace(', Other resources', 'Other resources');
+    listOfChampions[champion]["Resource"] = listOfChampions[champion]["Resource"].replace(', Other resources', '');
     p_resource.innerHTML += listOfChampions[champion]["Resource"];
   } else {
     p_resource.innerHTML += listOfChampions[champion]["Resource"];
@@ -2184,6 +2190,56 @@ for (const champion in listOfChampions) {
   carteContainer.appendChild(flip_card);
 };
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  CARTES ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvTEST OKAY ???vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
+document.addEventListener('DOMContentLoaded', function() {
+  let timer;
+  let clickedCheckbox = null;
+
+  // Fonction pour déclencher l'événement 'change' programmatique
+  function triggerChangeEvent(element) {
+    const event = new Event('change', { bubbles: true });
+    element.dispatchEvent(event);
+  }
+
+  // Ajoute des écouteurs d'événements à toutes les checkboxes dans les groupes
+  document.querySelectorAll('.checkbox-group .checkbox').forEach(checkbox => {
+    checkbox.addEventListener('mousedown', function(event) {
+      // Empêche les autres actions de s'exécuter pendant le clic prolongé
+      event.preventDefault();
+      
+      clickedCheckbox = this;
+      timer = setTimeout(() => {
+        // Décocher toutes les autres checkboxes dans la même liste
+        if (clickedCheckbox) {
+          const group = clickedCheckbox.closest('.checkbox-group');
+          group.querySelectorAll('.checkbox').forEach(cb => {
+            if (cb !== clickedCheckbox) {
+              if (cb.checked) {
+                cb.checked = false;
+                triggerChangeEvent(cb); // Déclenche l'événement 'change'
+              }
+            }
+          });
+        }
+      }, 2000); // 2 secondes
+    });
+
+    checkbox.addEventListener('mouseup', function() {
+      // Annule le timer si le clic est relâché avant 2 secondes
+      clearTimeout(timer);
+      clickedCheckbox = null;
+    });
+
+    checkbox.addEventListener('mouseleave', function() {
+      // Annule le timer si la souris quitte la zone de la checkbox
+      clearTimeout(timer);
+      clickedCheckbox = null;
+    });
+  });
+});
+
+
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ TEST OKAY ???^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
 
  //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv UNDO vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
 
@@ -2263,18 +2319,18 @@ undo.addEventListener('click', function(){
     let putain = document.querySelector("." + lastDelete);
     deletedCardArr.pop();
     putain.classList.remove('none');
-    console.log(putain);
-    console.log(deletedCardArr);
+    //console.log(putain);
+    //console.log(deletedCardArr);
     cartesPresent();
     if (deletedCardArr.length === 0){
       undo.classList.add('false');
-      console.log("indisponible");
+      //console.log("indisponible");
       undo.textContent = 'UNDO';
       cartesPresent();
     } else if (deletedCardArr.length > 0){
       undo.classList.remove('false');
       cartesPresent();
-      console.log("disponible");
+      //console.log("disponible");
       switch (deletedCardArr[deletedCardArr.length - 1]){
         case "AurelionSol":
           undo.textContent = "Aurelion Sol".toUpperCase();
@@ -2346,16 +2402,24 @@ reset.addEventListener('click', function(){
     if (cartesnone.classList.contains('none')){
       cartesnone.classList.remove('none');
       cartesPresent();
-    }
+    } 
   })
   checkBoxArr.forEach(function (checkbox){
     checkbox.checked = true;
     cartesPresent();
   })
+  LiArr.forEach(function(list){
+    if (list.classList.contains('checkboxIsNotChecked')){
+      list.classList.remove("checkboxIsNotChecked");
+      list.classList.add("checkboxIsChecked");
+    }
+  })
   undo.classList.add('false');
   deletedCardArr.splice(0, deletedCardArr.length);
   cartesPresent();
 });
+
+
 
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ RESET  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
 
@@ -2414,6 +2478,7 @@ toggleVisibility('region');
 toggleVisibility('released');
 
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ NAV DROPDOWN ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
+ 
 
 
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvVvvvvvvvvvvvvvvvv GAME BRAIN SYSTEM vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
@@ -2422,11 +2487,15 @@ let championElement;
 let championASupprime;
 
 
+
 checkBoxArr.forEach(function(boite) {
+  //boite.addEventListener('mousedown', handleMouseDown);
+  //boite.addEventListener('mouseup', handleMouseUp);
+  //boite.addEventListener('mouseleave', handleMouseUp);
   boite.addEventListener('change', function(){
     if (boite.checked == false){
       currentBoxValue = boite.value;
-      console.log(currentBoxValue);
+      //console.log(currentBoxValue);
       //console.log(boite);
       for (const cartes in listOfChampions) {
         championElement = listOfChampions[cartes];
@@ -2447,9 +2516,9 @@ checkBoxArr.forEach(function(boite) {
           championElement['Region'].includes(currentBoxValue) ||
           championElement['Released'].toString().includes(currentBoxValue)
         ) {
-          console.log("cartes: " + cartes);
-          console.log(listOfChampions[cartes]);
-          console.log(listOfChampions[cartes]['Gender'].includes(currentBoxValue));
+          //console.log("cartes: " + cartes);
+          //console.log(listOfChampions[cartes]);
+          //console.log(listOfChampions[cartes]['Gender'].includes(currentBoxValue));
           //console.log("cartes: " + cartes);
           championASupprime = document.querySelector("." + cartes);
           //console.log("championASupprime: " + championASupprime);
@@ -2461,9 +2530,8 @@ checkBoxArr.forEach(function(boite) {
       }
     }
     else if (boite.checked == true){
-    
       currentBoxValue = boite.value;
-      console.log(currentBoxValue);
+      //console.log(currentBoxValue);
       //console.log(boite);
       for (const cartes in listOfChampions) {
         championElement = listOfChampions[cartes];
@@ -2497,6 +2565,33 @@ checkBoxArr.forEach(function(boite) {
   });
 });
 
+function toggleHighlight(event) {
+  let checkbox = event.target;
+  let li = checkbox.closest('li');
+  
+  if (checkbox.checked) {
+      li.classList.add('checkboxIsChecked');
+      li.classList.remove('checkboxIsNotChecked');
+  } else {
+    li.classList.add('checkboxIsNotChecked');
+    li.classList.remove('checkboxIsChecked');
+  }
+}
+
+checkBoxArr.forEach(checkbox => {
+  // Initialize the li class based on the checkbox state
+  let li = checkbox.closest('li');
+  if (checkbox.checked) {
+    li.classList.add('checkboxIsChecked');
+    li.classList.remove('checkboxIsNotChecked');
+  } else {
+    li.classList.add('checkboxIsNotChecked');
+    li.classList.remove('checkboxIsChecked');
+  }
+
+  // Add event listener
+  checkbox.addEventListener('change', toggleHighlight);
+});
 
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ GAME BRAIN SYSTEM ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
 let remain = document.getElementById('remain');

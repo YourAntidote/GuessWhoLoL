@@ -70,11 +70,46 @@ label {
 li {
   color: #CDBE91;
   padding: 5px;
+  border-top: 1px solid #242424;
+  border-bottom: 1px solid #242424;
+
+
+}
+li:hover{
+  border-top: 1px solid #F0E6D2;
+  border-bottom: 1px solid #F0E6D2;
+}
+li:active {
+  background-color: #0a2934;
 }
 
 .dropdown-check-list .list li input {
   margin-right: 5px; /* Ajoutez de la marge à droite du checkbox */
 }
+
+
+
+.checkboxIsChecked label {
+  color: #F0E6D2;
+}
+
+.checkboxIsNotChecked label {
+  color: #CDBE91;
+}
+
+.checkboxIsChecked {
+  background-color: #242424;
+  /*background-color: #0d1b2a;*/
+  /*border-bottom: 1px solid #CDBE91;*/
+  border-bottom: 1px solid #0d1b2a;
+}
+
+.checkboxIsNotChecked {
+  background-color: #020e1b;
+
+  border-bottom: 1px solid #242424;
+}
+
 
 .anchor {
   color: #F0E6D2;
