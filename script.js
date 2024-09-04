@@ -2041,6 +2041,8 @@ let orderOfCards = Object.keys(listOfChampions);
 let lastDelete;
 let deletedCardArr = [];
 let LiArr = document.querySelectorAll('li');
+let isChampionSelected = false;
+let selectGone = document.querySelector('.pick');
 
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  VARIABLES ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv CARTES vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
@@ -2116,13 +2118,13 @@ for (const champion in listOfChampions) {
     p_position.innerHTML += listOfChampions[champion]["Position"];
   }
   if (listOfChampions[champion]["Species"].includes("Other species")){
-    listOfChampions[champion]["Species"] = listOfChampions[champion]["Species"].replace('Other species', '');
+    //listOfChampions[champion]["Species"] = listOfChampions[champion]["Species"].replace('Other species', '');
     p_species.innerHTML += listOfChampions[champion]["Species"];
   } else {
     p_species.innerHTML += listOfChampions[champion]["Species"];
   }
   if (listOfChampions[champion]["Resource"].includes("Other resources")){
-    listOfChampions[champion]["Resource"] = listOfChampions[champion]["Resource"].replace(', Other resources', '');
+    //listOfChampions[champion]["Resource"] = listOfChampions[champion]["Resource"].replace(', Other resources', '');
     p_resource.innerHTML += listOfChampions[champion]["Resource"];
   } else {
     p_resource.innerHTML += listOfChampions[champion]["Resource"];
@@ -2150,6 +2152,8 @@ for (const champion in listOfChampions) {
         flip_card_back.appendChild(p_released);
       flip_card_inner.appendChild(flip_card_back);
     flip_card.appendChild(flip_card_inner);
+
+    
 
     flip_card_inner.addEventListener('click', function () {
       if(deletedCardArr.includes(champion) == false){
@@ -2188,8 +2192,11 @@ for (const champion in listOfChampions) {
       }
     });
   carteContainer.appendChild(flip_card);
+
+
 };
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  CARTES ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
+
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvTEST OKAY ???vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
 document.addEventListener('DOMContentLoaded', function() {
   let timer;
@@ -2221,7 +2228,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
           });
         }
-      }, 2000); // 2 secondes
+      }, 250); // 2 secondes
     });
 
     checkbox.addEventListener('mouseup', function() {
@@ -2236,6 +2243,157 @@ document.addEventListener('DOMContentLoaded', function() {
       clickedCheckbox = null;
     });
   });
+});
+
+let select = document.querySelector(".selection");
+
+
+function selection(champion) {
+  var flip_card = document.createElement("div");
+  var flip_card_inner = document.createElement("div");
+  var flip_card_front = document.createElement("div");
+  var img = document.createElement("img");
+  var flip_card_back = document.createElement("div");
+  var h1_name = document.createElement("h1");
+  h1_name.style.textShadow = "0px 0px 6px rgba(0, 0, 0, 1)";
+  var p_gender = document.createElement("p");
+  var p_position = document.createElement("p");
+  var p_species = document.createElement("p");
+  var p_resource = document.createElement("p");
+  var p_range = document.createElement("p");
+  var p_region = document.createElement("p");
+  var p_released = document.createElement("p");
+  var genderColor = document.createElement("span");
+  var positionColor = document.createElement("span");
+  var positionColor2 = document.createElement("span");
+  var speciesColor = document.createElement("span");
+  var resourceColor = document.createElement("span");
+  var rangeColor = document.createElement("span");
+  var regionColor = document.createElement("span");
+  var regionColor2 = document.createElement("span");
+  var releasedColor = document.createElement("span");
+  // Set styles
+  genderColor.style.color = '#f0e6d2';
+  positionColor.style.color = '#f0e6d2';
+  positionColor2.style.color = '#f0e6d2';
+  speciesColor.style.color = '#f0e6d2';
+  resourceColor.style.color = '#f0e6d2';
+  rangeColor.style.color = '#f0e6d2';
+  regionColor.style.color = '#f0e6d2';
+  regionColor2.style.color = '#f0e6d2';
+  releasedColor.style.color = '#f0e6d2';
+  // Set text content
+  genderColor.textContent = "Gender : ";
+  positionColor.textContent = "Position : ";
+  positionColor2.textContent = "Positions : ";
+  speciesColor.textContent = "Species : ";
+  resourceColor.textContent = "Resource : ";
+  rangeColor.textContent = "Range type : ";
+  regionColor.textContent = "Region : ";
+  regionColor2.textContent = "Regions : ";
+  releasedColor.textContent = "Released : ";
+  // Append colored spans to their respective <p> elements
+  p_gender.appendChild(genderColor);
+  p_species.appendChild(speciesColor);
+  p_resource.appendChild(resourceColor);
+  p_range.appendChild(rangeColor);
+  p_released.appendChild(releasedColor);
+  // Set class names and attributes
+  h1_name.className = "nom";
+  flip_card.className = "flip-card " + champion;
+  flip_card_inner.className = "flip-card-inner";
+  flip_card_front.className = "flip-card-front";
+  img.alt = listOfChampions[champion]["Name"];
+  img.src = listOfChampions[champion]["img"];
+  flip_card_back.className = "flip-card-back";
+  h1_name.textContent = listOfChampions[champion]["Name"].toUpperCase();
+  // Add text content based on conditions
+  p_gender.innerHTML += listOfChampions[champion]["Gender"];
+  if (listOfChampions[champion]["Position"].includes(",")) {
+      p_position.appendChild(positionColor2);
+  } else {
+      p_position.appendChild(positionColor);
+  }
+  p_position.innerHTML += listOfChampions[champion]["Position"];
+  p_species.innerHTML += listOfChampions[champion]["Species"];
+  p_resource.innerHTML += listOfChampions[champion]["Resource"];
+  p_range.innerHTML += listOfChampions[champion]["RangeType"];
+  if (listOfChampions[champion]["Region"].includes(",")) {
+      p_region.appendChild(regionColor2);
+  } else {
+      p_region.appendChild(regionColor);
+  }
+  p_region.innerHTML += listOfChampions[champion]["Region"];
+  p_released.innerHTML += listOfChampions[champion]["Released"];
+  // Build the flip card structure
+  flip_card_front.appendChild(img);
+  flip_card_front.appendChild(h1_name);
+  flip_card_inner.appendChild(flip_card_front);
+  flip_card_back.appendChild(p_gender);
+  flip_card_back.appendChild(p_position);
+  flip_card_back.appendChild(p_species);
+  flip_card_back.appendChild(p_resource);
+  flip_card_back.appendChild(p_range);
+  flip_card_back.appendChild(p_region);
+  flip_card_back.appendChild(p_released);
+  flip_card_inner.appendChild(flip_card_back);
+  flip_card.appendChild(flip_card_inner);
+  // Append the flip card to an existing element in the DOM
+  select.appendChild(flip_card);
+  flip_card.classList.add("pick");
+  isChampionSelected = true;
+
+}
+
+  // Call the function with a champion (e.g., 'Ahri')
+
+
+document.querySelectorAll('.flip-card').forEach(card => {
+  let pressTimer;
+  card.addEventListener('mousedown', () => {
+    pressTimer = setTimeout(() => {
+      storeCardValue(card);
+    }, 1000);
+  });
+  card.addEventListener('mouseup', () => {
+    clearTimeout(pressTimer);
+  });
+  card.addEventListener('mouseleave', () => {
+    clearTimeout(pressTimer);
+  });
+});
+function storeCardValue(cardElement) {
+  // Extract the champion name from the card
+  const cardHTML = cardElement.outerHTML;
+  const cardNameMatch = cardHTML.match(/<h1 class="nom"[^>]*>([^<]+)<\/h1>/);
+  let cardName = cardNameMatch ? cardNameMatch[1] : null;
+  if (cardName) {
+    // Capitalize only the first letter
+    cardName = cardName.charAt(0).toUpperCase() + cardName.slice(1).toLowerCase();
+    if (listOfChampions[cardName]) {
+      const championDetails = listOfChampions[cardName];
+
+      if(!isChampionSelected) {
+        selection(cardName);
+        selectGone = document.querySelector('.pick');
+      } 
+      // You can now use championDetails to perform actions or store them as needed
+    }
+  } 
+}
+
+
+
+let arrow = document.querySelector(".arrow-button");
+let selection2 = document.querySelector('.selection');
+
+arrow.addEventListener('click', function(){
+
+  if (selection2.style.transform === 'translate(0px, -50%)') {
+    selection2.style.transform = 'translate(-272px, -50%)';
+  } else {
+    selection2.style.transform = 'translate(0px, -50%)';
+  }
 });
 
 
@@ -2393,9 +2551,21 @@ undo.addEventListener('click', function(){
   } 
 });
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  UNDO ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
-
-//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv RESET  vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
 let cartesArr = document.querySelectorAll('.flip-card');
+
+cartesArr.forEach((checkbox) => {
+  checkbox.addEventListener('change', () => {
+      if (checkbox.checked) {
+          checkboxes.forEach((otherCheckbox) => {
+              if (otherCheckbox !== checkbox) {
+                  otherCheckbox.checked = false;
+              }
+          });
+      }
+  });
+});
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv RESET  vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
+
 
 reset.addEventListener('click', function(){
   cartesArr.forEach(function(cartesnone){
@@ -2417,12 +2587,41 @@ reset.addEventListener('click', function(){
   undo.classList.add('false');
   deletedCardArr.splice(0, deletedCardArr.length);
   cartesPresent();
+
+  selection2.style.transform = 'translate(-272px, -50%)';
+  
+
+  selection2.addEventListener('transitionend', function handleTransitionEnd() {
+    // Ensure the transformation is complete before removing
+    if (selectGone) {
+      selectGone.parentNode.removeChild(selectGone);
+    }
+    // Reset or update other states as needed
+    isChampionSelected = false;
+    // Remove the event listener to avoid potential memory leaks
+    selection2.removeEventListener('transitionend', handleTransitionEnd);
+  });
+
 });
-
-
-
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ RESET  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
 
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv Radio On Cards vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
+/*
+const cards = document.querySelectorAll(".flip-card-back");
+
+cards.forEach((card, index) => {
+  // Create a radio input element
+  const radio = document.createElement('input');
+  radio.type = 'radio';
+  radio.name = 'cardRadio'; // All radios should have the same name for mutual exclusivity
+  radio.value = `card${index + 1}`; // Optional: set a value for each radio
+
+  // Append the radio input to the card
+  card.appendChild(radio);
+});
+*/
+
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  Radio On Cards ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
 
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv NAV DROPDOWN vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
 function toggleVisibility(elementId) {

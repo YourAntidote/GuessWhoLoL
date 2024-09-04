@@ -205,6 +205,13 @@ img {
   width: 254px;
   perspective: 1000px;
   cursor: pointer;
+  transition: all 200ms ease-in;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.flip-card:active {
+  scale: 1.1;
 }
 
 .flip-card-inner {
@@ -327,4 +334,54 @@ h1 {
 .false {
   opacity: 0.8;
   filter:grayscale(1);
+}
+
+.selection {
+  position: fixed;
+  top: 50%;
+  left: 0px;
+  transform: translate(-272px, -50%);
+  height: 300px;
+  width: 272px;
+  background-color: #020e1b;
+  border: 1px #F0E6D2 solid;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.arrow {
+  width: 50px;
+  height: 40px;
+  border: none;
+}
+
+.arrow-button {
+  background-color: transparent;
+  border: none;
+}
+
+.pick {
+  margin: 0px;
+  padding: 0px;
+  transform: translateX(22px);
+}
+
+.cube {
+  background-color: #020e1b;
+  border: 1px #F0E6D2 solid;
+  transform: translateX(30px);
+  width: 45px;
+  border-left: none;
+  border-radius: 0px 5px 5px 0px;
+  height: 70px;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
