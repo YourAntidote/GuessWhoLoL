@@ -1781,6 +1781,17 @@ let listOfChampions = {
     Released: 2011,
     img: "./champions/yorick.jpg",
   },
+  "Yunara": {
+    Name: "Yunara",
+    Gender: "Female",
+    Position: "Bottom",
+    Species : "Human, Spiritualist",
+    Resource: "Mana ",
+    RangeType: "Ranged",
+    Region: "Ionia",
+    Released: 2025,
+    img: "./champions/yunara.png",
+  },
   "Yuumi": {
     Name: "Yuumi",
     Gender: "Female",
