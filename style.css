@@ -68,13 +68,15 @@ label {
 }
 
 li {
-  color: #CDBE91;
+  color: #F0E6D2;
   padding: 5px;
   border-top: 1px solid #242424;
   border-bottom: 1px solid #242424;
-
-
+  position: relative;
+  display: flex;
+  justify-content: space-between;
 }
+
 li:hover{
   border-top: 1px solid #F0E6D2;
   border-bottom: 1px solid #F0E6D2;
@@ -83,12 +85,14 @@ li:active {
   background-color: #0a2934;
 }
 
-.dropdown-check-list .list li input {
+.checkboxLeft {
   margin-right: 5px; /* Ajoutez de la marge à droite du checkbox */
 }
+.checkboxRight{
+  margin-left: 5px; /* Ajoutez de la marge à droite du checkbox */
+}
 
-
-
+/*
 .checkboxIsChecked label {
   color: #F0E6D2;
 }
@@ -96,11 +100,52 @@ li:active {
 .checkboxIsNotChecked label {
   color: #CDBE91;
 }
+*/
 
+/* Cache l'apparence native */
+.checkboxLeft,
+.checkboxRight {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+/* LEFT → rouge */
+.checkboxLeft {
+  border: 2px solid darkred;
+}
+.checkboxLeft:checked {
+  background: #8b0000; /* rouge sang */
+  border-color: #8b0000;
+}
+
+/* RIGHT → vert */
+.checkboxRight {
+  border: 2px solid darkgreen;
+}
+.checkboxRight:checked {
+  background: #228b22; /* vert gazon */
+  border-color: #228b22;
+}
+
+/* Petit effet hover */
+.checkboxLeft:hover {
+  box-shadow: 0 0 5px rgba(139, 0, 0, 0.6);
+}
+.checkboxRight:hover {
+  box-shadow: 0 0 5px rgba(34, 139, 34, 0.6);
+}
+
+
+/*
 .checkboxIsChecked {
   background-color: #242424;
   /*background-color: #0d1b2a;*/
-  /*border-bottom: 1px solid #CDBE91;*/
+  /*border-bottom: 1px solid #CDBE91;
   border-bottom: 1px solid #0d1b2a;
 }
 
@@ -109,6 +154,7 @@ li:active {
 
   border-bottom: 1px solid #242424;
 }
+*/
 
 
 .anchor {

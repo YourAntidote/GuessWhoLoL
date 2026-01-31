@@ -767,7 +767,7 @@ let listOfChampions = {
     RangeType: "Ranged",
     Region: "Noxus",
     Released: 2010,
-    img: "./champions/RiotX_ChampionList_leblanc.jpg",
+    img: "./champions/leblanc.png",
   },
   "LeeSin": {
     Name: "Lee Sin",
@@ -1803,6 +1803,17 @@ let listOfChampions = {
     Released: 2019,
     img: "./champions/yuumi.jpg",
   },
+  "Zaahen": {
+    Name: "Zaahen",
+    Gender: "Male",
+    Position: "Top, Jungle",
+    Species : "Darkin, Human",
+    Resource: "Mana",
+    RangeType: "Melee",
+    Region: "Ionia, Shurima",
+    Released: 2025,
+    img: "./champions/zaahen.png",
+  },
   "Zac": {
     Name: "Zac",
     Gender: "Male",
@@ -2070,13 +2081,96 @@ var carteContainer = document.getElementById("carteContainer");
 let btn = document.querySelector("#btn");
 let undo = document.querySelector("#undo");
 let reset = document.querySelector("#btn");
-let checkBoxArr = document.querySelectorAll('.checkbox');
+let checkBoxLeftArr = document.querySelectorAll('.checkboxLeft');
+let checkBoxRightArr = document.querySelectorAll('.checkboxRight');
+let allCheckboxArr = document.querySelectorAll("input");
 let orderOfCards = Object.keys(listOfChampions);
 let lastDelete;
 let deletedCardArr = [];
 let LiArr = document.querySelectorAll('li');
 let isChampionSelected = false;
 let selectGone = document.querySelector('.pick');
+let remain = document.getElementById('remain');
+let carteNone;
+
+let keywordState = {
+  "Male": null,
+  "Female": null,
+  "Other gender": null,
+  "Top": null,
+  "Jungle": null,
+  "Middle": null,
+  "Bottom": null,
+  "Support": null,
+  "Aspect": null,
+  "Celestial": null,
+  "Chemically Altered": null,
+  "Cyborg": null,
+  "Darkin": null,
+  "Demon": null,
+  "Dragon": null,
+  "God,": null,
+  "God-Warrior": null,
+  "Golem": null,
+  "Human": null,
+  "Iceborn": null,
+  "Magically Altered": null,
+  "Magicborn": null,
+  "Revenant": null,
+  "Spirit ": null,
+  "Spiritualist": null,
+  "Undead": null,
+  "Unknown": null,
+  "Vastayan": null,
+  "Void-Being": null,
+  "Yordle": null,
+  "Other species": null,
+  "Mana ": null,
+  "Manaless": null,
+  "Energy": null,
+  "Health costs": null,
+  "Fury": null,
+  "Rage": null,
+  "Other resources": null,
+  "Melee": null,
+  "Range": null,
+  "Mixed": null,
+  "Bandle City": null,
+  "Bilgewater": null,
+  "Camavor": null,
+  "Demacia": null,
+  "Freljord": null,
+  "Icathia": null,
+  "Ionia": null,
+  "Ixtal": null,
+  "Noxus": null,
+  "Piltover": null,
+  "Shadow Isles": null,
+  "Shurima": null,
+  "Targon": null,
+  "Void ": null,
+  "Zaun": null,
+  "Runeterra": null,
+  "2009": null,
+  "2010": null,
+  "2011": null,
+  "2012": null,
+  "2013": null,
+  "2014": null,
+  "2015": null,
+  "2016": null,
+  "2017": null,
+  "2018": null,
+  "2019": null,
+  "2020": null,
+  "2021": null,
+  "2022": null,
+  "2023": null,
+  "2024": null,
+  "2025": null,
+  "2025": null
+};
+
 
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  VARIABLES ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv CARTES vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
@@ -2608,8 +2702,12 @@ reset.addEventListener('click', function(){
       cartesPresent();
     } 
   })
-  checkBoxArr.forEach(function (checkbox){
-    checkbox.checked = true;
+  checkBoxLeftArr.forEach(function (checkbox){
+    checkbox.checked = false;
+    cartesPresent();
+  })
+  checkBoxRightArr.forEach(function (checkbox){
+    checkbox.checked = false;
     cartesPresent();
   })
   LiArr.forEach(function(list){
@@ -2718,10 +2816,64 @@ toggleVisibility('released');
 let currentBoxValue;
 let championElement;
 let championASupprime;
+let rightCurrentBoxValue;
+let leftCurrentBoxValue;
+let championElementRight;
+
+checkBoxRightArr.forEach(function(checkbox) {
 
 
+  checkbox.addEventListener('change', function(){
+    if (checkbox.checked == true){
+      rightCurrentBoxValue = checkbox.value;
+      console.log(rightCurrentBoxValue);
+      
+      if (keywordState[rightCurrentBoxValue] == null) {
+        keywordState[rightCurrentBoxValue] = true;
+        console.log(keywordState[rightCurrentBoxValue]);
+        updateCards();
+      }
+    } else if (checkbox.checked == false){
+      rightCurrentBoxValue = checkbox.value;
+      console.log(rightCurrentBoxValue);
+      
+      if (keywordState[rightCurrentBoxValue] == true) {
+        keywordState[rightCurrentBoxValue] = null;
+        console.log(keywordState[rightCurrentBoxValue]);
+        updateCards();
+      }
+    }
+  });
+});
 
-checkBoxArr.forEach(function(boite) {
+checkBoxLeftArr.forEach(function(checkbox) {
+
+
+  checkbox.addEventListener('change', function(){
+    if (checkbox.checked == true){
+      leftCurrentBoxValue = checkbox.value;
+      console.log(leftCurrentBoxValue);
+      
+      if (keywordState[leftCurrentBoxValue] == null) {
+        keywordState[leftCurrentBoxValue] = false;
+        console.log(keywordState[leftCurrentBoxValue]);
+        updateCards();
+      }
+    } else if (checkbox.checked == false){
+      leftCurrentBoxValue = checkbox.value;
+      console.log(leftCurrentBoxValue);
+      
+      if (keywordState[leftCurrentBoxValue] == false) {
+        keywordState[leftCurrentBoxValue] = null;
+        console.log(keywordState[leftCurrentBoxValue]);
+        updateCards();
+      }
+    }
+  });
+});
+
+/*
+checkBoxLeftArr.forEach(function(boite) {
   //boite.addEventListener('mousedown', handleMouseDown);
   //boite.addEventListener('mouseup', handleMouseUp);
   //boite.addEventListener('mouseleave', handleMouseUp);
@@ -2797,7 +2949,61 @@ checkBoxArr.forEach(function(boite) {
     }
   });
 });
+*/
 
+
+function updateCards(){
+  clear();
+
+  const trueKeywords = Object.keys(keywordState).filter(key => keywordState[key] === true);
+  const falseKeywords = Object.keys(keywordState).filter(key => keywordState[key] === false);
+  let trueWord;
+  let falseWord;
+
+  for (const key in trueKeywords){
+    trueWord = trueKeywords[key];
+
+    for (const cartes in listOfChampions){
+    championElement = listOfChampions[cartes];
+
+      if (championElement['Gender'].includes(trueWord) ||
+        championElement['Position'].includes(trueWord) ||
+        championElement['Species'].includes(trueWord) ||
+        championElement['Resource'].includes(trueWord) ||
+        championElement['RangeType'].includes(trueWord) ||
+        championElement['Region'].includes(trueWord) ||
+        championElement['Released'].toString().includes(trueWord))
+        { 
+          //console.log(championElement);
+      } else {
+        championASupprime = document.querySelector("." + cartes);
+        championASupprime.classList.add('none');
+      }
+    }
+  }
+
+  for (const key in falseKeywords){
+    falseWord = falseKeywords[key];
+
+    for (const cartes in listOfChampions){
+      championElement = listOfChampions[cartes];
+      if (championElement['Gender'].includes(falseWord) ||
+        championElement['Position'].includes(falseWord) ||
+        championElement['Species'].includes(falseWord) ||
+        championElement['Resource'].includes(falseWord) ||
+        championElement['RangeType'].includes(falseWord) ||
+        championElement['Region'].includes(falseWord) ||
+        championElement['Released'].toString().includes(falseWord))
+        { 
+          championASupprime = document.querySelector("." + cartes);
+          championASupprime.classList.add('none');
+      } 
+    }
+  }
+    cartesPresent();
+}
+
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvVvvvvvvvvvvvvvvvvvvvvvvvvVvvvvvvvvvvvvvvvvvvvvvvvvVvvvvvvvvvvvvvvvv 
 function toggleHighlight(event) {
   let checkbox = event.target;
   let li = checkbox.closest('li');
@@ -2811,7 +3017,7 @@ function toggleHighlight(event) {
   }
 }
 
-checkBoxArr.forEach(checkbox => {
+checkBoxLeftArr.forEach(checkbox => {
   // Initialize the li class based on the checkbox state
   let li = checkbox.closest('li');
   if (checkbox.checked) {
@@ -2827,8 +3033,7 @@ checkBoxArr.forEach(checkbox => {
 });
 
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ GAME BRAIN SYSTEM ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
-let remain = document.getElementById('remain');
-let carteNone;
+
 //let cartesRestantes = Object.keys(listOfChampions).length
 
 function cartesPresent() {
@@ -2840,4 +3045,13 @@ function cartesPresent() {
   remain.textContent = cartesRestantes + " left";
 }
 
-cartesPresent();
+
+
+function clear() {
+  document.querySelectorAll(".none").forEach(function(cartes){
+    cartes.classList.remove('none');
+  })
+}
+
+
+updateCards();
