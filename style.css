@@ -75,6 +75,8 @@ li {
   position: relative;
   display: flex;
   justify-content: space-between;
+  text-align: center;
+  align-items: center;
 }
 
 li:hover{
@@ -155,7 +157,11 @@ li:active {
   border-bottom: 1px solid #242424;
 }
 */
-
+#chemically {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
 
 .anchor {
   color: #F0E6D2;
@@ -173,6 +179,8 @@ li:active {
   display: inline-block;
   padding: 5px 50px 5px 10px;
   border: 1px solid #ccc;
+  /*border-radius: 10px 10px 0px 0px;*/
+  border-radius: 10px;
 }
 
 .dropdown-check-list .anchor:after {
@@ -227,8 +235,8 @@ li:active {
 img {
   box-shadow: inset 5px 5px 5px 0px #000;
   border-radius: 5px;
-  width: 250px;
-  height: 282px !important;
+  width: 225px;
+  /*height: 282px !important;*/
   padding: 0px;
   margin: 0px;
   z-index: 0;
@@ -246,9 +254,9 @@ img {
   text-align: center;
   background-color: transparent;
   margin-top: 10px;
-  height: 286px;
+  /*height: 286px;*/
   padding: 0px;
-  width: 254px;
+  width: 229px;
   perspective: 1000px;
   cursor: pointer;
   transition: all 200ms ease-in;
@@ -311,7 +319,7 @@ p{
   font-family: 'Beaufort-bold', sans-serif;
   color: #b1a48c;
   vertical-align: super;
-  font-size: 19px;
+  font-size: 1rem;
   margin: 0px !important; 
   padding-left: 6px;
   text-align: left;
@@ -327,8 +335,58 @@ h1 {
   translate: -50% -50%;
   font-size: 25px !important;
   user-select: none;
-
 }
+/*
+h2 {
+  font-family: 'Beaufort-heavy', sans-serif;
+  color: #f0e6d2 !important;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  translate: -50% 10%;
+  font-size: 25px !important;
+  user-select: none;
+}*/
+
+h2 {
+  font-family: 'Beaufort-heavy', sans-serif;
+  color: #f0e6d2 !important;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 25px !important;
+  user-select: none;
+  width: 100%;
+  margin-bottom: 5px !important;
+}
+
+.div_hr {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: none !important;
+  margin: 0px 0px 5px 0px !important;
+}
+
+hr {
+  position: relative !important; 
+  display: flex !important;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 200px;
+  height: 2px;
+  background-color: #F0E6D2 !important;
+  border: none;
+  opacity: 1 !important;
+  border-radius: 10%;
+  margin: 0px 0px !important;
+}
+
 .bouton {
   background-color: #1e2328;
   color: #fff;
