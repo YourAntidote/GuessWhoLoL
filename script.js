@@ -24,7 +24,7 @@ let listOfChampions = {
   "Akali": {
     Name: "Akali",
     Gender: "Female",
-    Position: "Middle, Top",
+    Position: "Middle",
     Species : "Human",
     Resource: "Energy",
     RangeType: "Melee",
@@ -35,7 +35,7 @@ let listOfChampions = {
   "Akshan": {
     Name: "Akshan",
     Gender: "Male",
-    Position: "Middle, Top",
+    Position: "Middle",
     Species : "Human",
     Resource: "Mana ",
     RangeType: "Ranged",
@@ -50,14 +50,14 @@ let listOfChampions = {
     Species : "Minotaur, Other species",
     Resource: "Mana ",
     RangeType: "Melee",
-    Region: "Runeterra",
+    Region: "Noxus, Runeterra",
     Released: 2009,
     img: "./champions/RiotX_ChampionList_alistar.jpg",
   },
   "Ambessa": {
     Name: "Ambessa",
     Gender: "Female",
-    Position: "Top, Jungle",
+    Position: "Top",
     Species : "Human",
     Resource: "Energy",
     RangeType: "Melee",
@@ -68,7 +68,7 @@ let listOfChampions = {
   "Amumu": {
     Name: "Amumu",
     Gender: "Male",
-    Position: "Jungle, Support",
+    Position: "Jungle",
     Species : "Undead, Yordle",
     Resource: "Mana ",
     RangeType: "Melee",
@@ -90,7 +90,7 @@ let listOfChampions = {
   "Annie": {
     Name: "Annie",
     Gender: "Female",
-    Position: "Middle, Support",
+    Position: "Middle",
     Species : "Human, Magicborn",
     Resource: "Mana ",
     RangeType: "Ranged",
@@ -112,7 +112,7 @@ let listOfChampions = {
   "Ashe": {
     Name: "Ashe",
     Gender: "Female",
-    Position: "Bottom, Support",
+    Position: "Bottom",
     Species : "Human, Iceborn",
     Resource: "Mana ",
     RangeType: "Ranged",
@@ -135,7 +135,7 @@ let listOfChampions = {
   "Aurora": {
     Name: "Aurora",
     Gender: "Female",
-    Position: "Top, Middle",
+    Position: "Middle",
     Species: "Vastayan",
     Resource: "Mana ",
     RangeType: "Ranged",
@@ -246,7 +246,7 @@ let listOfChampions = {
   "Cassiopeia": {
     Name: "Cassiopeia",
     Gender: "Female",
-    Position: "Middle",
+    Position: "Middle, Top",
     Species : "Human, Magically Altered",
     Resource: "Mana ",
     RangeType: "Ranged",
@@ -269,7 +269,7 @@ let listOfChampions = {
   "Corki": {
     Name: "Corki",
     Gender: "Male",
-    Position: "Middle",
+    Position: "Bottom",
     Species : "Yordle",
     Resource: "Mana ",
     RangeType: "Ranged",
@@ -303,8 +303,8 @@ let listOfChampions = {
     Name: "Dr. Mundo",
     Undername: "DrMundo",
     Gender: "Male",
-    Position: "Top",
-    Species : "Chemically Altered, Human",
+    Position: "Top, Jungle",
+    Species : "Human, Chemically Altered",
     Resource: "Health costs",
     RangeType: "Melee",
     Region: "Zaun",
@@ -336,7 +336,7 @@ let listOfChampions = {
   "Elise": {
     Name: "Elise",
     Gender: "Female",
-    Position: "Jungle",
+    Position: "Jungle, Support",
     Species : "Human, Magically Altered",
     Resource: "Mana ",
     RangeType: "Mixed",
@@ -402,7 +402,7 @@ let listOfChampions = {
   "Galio": {
     Name: "Galio",
     Gender: "Male",
-    Position: "Middle, Support",
+    Position: "Middle",
     Species : "Golem",
     Resource: "Mana ",
     RangeType: "Melee",
@@ -447,7 +447,7 @@ let listOfChampions = {
     Name: "Gragas",
     Gender: "Male",
     Position: "Jungle, Top",
-    Species : "Human",
+    Species : "Human, Iceborn",
     Resource: "Mana ",
     RangeType: "Melee",
     Region: "Freljord",
@@ -468,7 +468,7 @@ let listOfChampions = {
   "Gwen": {
     Name: "Gwen",
     Gender: "Female",
-    Position: "Top",
+    Position: "Top, Jungle",
     Species : "Human, Magically Altered",
     Resource: "Mana ",
     RangeType: "Melee",
@@ -490,7 +490,7 @@ let listOfChampions = {
   "Heimerdinger": {
     Name: "Heimerdinger",
     Gender: "Male",
-    Position: "Middle, Support",
+    Position: "Middle, Top",
     Species : "Yordle",
     Resource: "Mana ",
     RangeType: "Ranged",
@@ -501,7 +501,7 @@ let listOfChampions = {
   "Hwei": {
     Name: "Hwei",
     Gender: "Male",
-    Position: "Middle, Support",
+    Position: "Middle",
     Species : "Human, Magicborn",
     Resource: "Mana ",
     RangeType: "Ranged",
@@ -579,7 +579,7 @@ let listOfChampions = {
   "Jayce": {
     Name: "Jayce",
     Gender: "Male",
-    Position: "Middle, Top",
+    Position: "Jungle, Top",
     Species : "Human",
     Resource: "Mana ",
     RangeType: "Mixed",
@@ -602,7 +602,7 @@ let listOfChampions = {
     Name: "Jinx",
     Gender: "Female",
     Position: "Bottom",
-    Species : "Chemically Altered, Human",
+    Species : "Human, Chemically Altered",
     Resource: "Mana ",
     RangeType: "Ranged",
     Region: "Zaun",
@@ -713,7 +713,7 @@ let listOfChampions = {
   "Kennen": {
     Name: "Kennen",
     Gender: "Male",
-    Position: "Top",
+    Position: "Middle, Top",
     Species : "Yordle",
     Resource: "Energy",
     RangeType: "Ranged",
@@ -881,7 +881,7 @@ let listOfChampions = {
   "Maokai": {
     Name: "Maokai",
     Gender: "Male",
-    Position: "Jungle, Support",
+    Position: "Support",
     Species : "Spirit ",
     Resource: "Mana ",
     RangeType: "Melee",
@@ -915,7 +915,7 @@ let listOfChampions = {
   "Mel": {
     Name: "Mel",
     Gender: "Female",
-    Position: "Middle",
+    Position: "Middle, Support",
     Species: "Human, Magicborn",
     Resource: "Mana ",
     RangeType: "Ranged",
@@ -949,7 +949,7 @@ let listOfChampions = {
   "Morgana": {
     Name: "Morgana",
     Gender: "Female",
-    Position: "Support",
+    Position: "Middle, Support",
     Species : "Aspect, Human, Magically Altered",
     Resource: "Mana ",
     RangeType: "Ranged",
@@ -960,7 +960,7 @@ let listOfChampions = {
   "Naafiri": {
     Name: "Naafiri",
     Gender: "Female",
-    Position: "Middle",
+    Position: "Jungle, Middle",
     Species : "Darkin, Dog",
     Resource: "Mana ",
     RangeType: "Melee",
@@ -1004,7 +1004,7 @@ let listOfChampions = {
   "Neeko": {
     Name: "Neeko",
     Gender: "Female",
-    Position: "Middle, Support",
+    Position: "Support",
     Species : "Vastayan",
     Resource: "Mana ",
     RangeType: "Ranged",
@@ -1060,7 +1060,7 @@ let listOfChampions = {
   "Olaf": {
     Name: "Olaf",
     Gender: "Male",
-    Position: "Jungle, Top",
+    Position: "Top",
     Species : "Human, Iceborn",
     Resource: "Mana ",
     RangeType: "Melee",
@@ -1104,7 +1104,7 @@ let listOfChampions = {
   "Poppy": {
     Name: "Poppy",
     Gender: "Female",
-    Position: "Jungle, Top",
+    Position: "Support, Top",
     Species : "Yordle",
     Resource: "Mana ",
     RangeType: "Melee",
@@ -1126,7 +1126,7 @@ let listOfChampions = {
   "Qiyana": {
     Name: "Qiyana",
     Gender: "Female",
-    Position: "Middle",
+    Position: "Jungle, Middle",
     Species : "Human, Magicborn",
     Resource: "Mana ",
     RangeType: "Melee",
@@ -1160,7 +1160,7 @@ let listOfChampions = {
     Name: "Rammus",
     Gender: "Male",
     Position: "Jungle",
-    Species : "God-Warrior",
+    Species : "Unknown",
     Resource: "Mana ",
     RangeType: "Melee",
     Region: "Shurima",
@@ -1183,7 +1183,7 @@ let listOfChampions = {
     Name: "Rell",
     Gender: "Female",
     Position: "Support",
-    Species : "Human, Magically Altered, Magicborn",
+    Species : "Human, Magicborn, Magically Altered",
     Resource: "Mana ",
     RangeType: "Melee",
     Region: "Noxus",
@@ -1195,7 +1195,7 @@ let listOfChampions = {
     Undername: "RenataGlasc",
     Gender: "Female",
     Position: "Support",
-    Species : "Chemically Altered, Human",
+    Species : "Human, Chemically Altered",
     Resource: "Mana ",
     RangeType: "Ranged",
     Region: "Zaun",
@@ -1238,7 +1238,7 @@ let listOfChampions = {
   "Rumble": {
     Name: "Rumble",
     Gender: "Male",
-    Position: "Middle, Top",
+    Position: "Top",
     Species : "Yordle",
     Resource: "Heat, Other resources",
     RangeType: "Melee",
@@ -1249,7 +1249,7 @@ let listOfChampions = {
   "Ryze": {
     Name: "Ryze",
     Gender: "Male",
-    Position: "Middle, Top",
+    Position: "Middle",
     Species : "Human, Magically Altered",
     Resource: "Mana ",
     RangeType: "Ranged",
@@ -1315,7 +1315,7 @@ let listOfChampions = {
   "Shaco": {
     Name: "Shaco",
     Gender: "Male",
-    Position: "Jungle",
+    Position: "Jungle, Support",
     Species : "Spirit ",
     Resource: "Mana ",
     RangeType: "Melee",
@@ -1326,7 +1326,7 @@ let listOfChampions = {
   "Shen": {
     Name: "Shen",
     Gender: "Male",
-    Position: "Top",
+    Position: "Top, Support",
     Species : "Human, Spiritualist",
     Resource: "Energy",
     RangeType: "Melee",
@@ -1349,7 +1349,7 @@ let listOfChampions = {
     Name: "Singed",
     Gender: "Male",
     Position: "Top",
-    Species : "Chemically Altered, Human",
+    Species : "Human, Chemically Altered",
     Resource: "Mana ",
     RangeType: "Melee",
     Region: "Piltover, Zaun",
@@ -1392,7 +1392,7 @@ let listOfChampions = {
   "Smolder": {
     Name: "Smolder",
     Gender: "Male",
-    Position: "Middle, Bottom",
+    Position: "Bottom",
     Species : "Dragon",
     Resource: "Mana ",
     RangeType: "Ranged",
@@ -1425,7 +1425,7 @@ let listOfChampions = {
   "Swain": {
     Name: "Swain",
     Gender: "Male",
-    Position: "Middle, Support",
+    Position: "Support",
     Species : "Human, Magically Altered",
     Resource: "Mana ",
     RangeType: "Ranged",
@@ -1436,7 +1436,7 @@ let listOfChampions = {
   "Sylas": {
     Name: "Sylas",
     Gender: "Male",
-    Position: "Middle",
+    Position: "Jungle, Middle",
     Species : "Human, Magicborn",
     Resource: "Mana ",
     RangeType: "Melee",
@@ -1470,7 +1470,7 @@ let listOfChampions = {
   "Taliyah": {
     Name: "Taliyah",
     Gender: "Female",
-    Position: "Jungle, Middle",
+    Position: "Middle",
     Species : "Human, Magicborn",
     Resource: "Mana ",
     RangeType: "Ranged",
@@ -1581,7 +1581,7 @@ let listOfChampions = {
   "Udyr": {
     Name: "Udyr",
     Gender: "Male",
-    Position: "Jungle, Top",
+    Position: "Jungle",
     Species : "Human, Spiritualist",
     Resource: "Mana ",
     RangeType: "Melee",
@@ -1593,7 +1593,7 @@ let listOfChampions = {
     Name: "Urgot",
     Gender: "Male",
     Position: "Top",
-    Species : "Chemically Altered, Cyborg, Human",
+    Species : "Cyborg, Human, Chemically Altered",
     Resource: "Mana ",
     RangeType: "Ranged",
     Region: "Noxus, Zaun",
@@ -1603,7 +1603,7 @@ let listOfChampions = {
   "Varus": {
     Name: "Varus",
     Gender: "Male",
-    Position: "Bottom, Middle",
+    Position: "Bottom",
     Species : "Darkin, Human",
     Resource: "Mana ",
     RangeType: "Ranged",
@@ -1692,7 +1692,7 @@ let listOfChampions = {
   "Vladimir": {
     Name: "Vladimir",
     Gender: "Male",
-    Position: "Middle",
+    Position: "Top, Middle",
     Species : "Human, Magically Altered",
     Resource: "Bloodthirst, Other resources",
     RangeType: "Ranged",
@@ -1715,7 +1715,7 @@ let listOfChampions = {
     Name: "Warwick",
     Gender: "Male",
     Position: "Jungle, Top",
-    Species : "Chemically Altered, Cyborg, Human",
+    Species : "Cyborg, Human, Chemically Altered",
     Resource: "Mana ",
     RangeType: "Melee",
     Region: "Zaun",
@@ -1825,7 +1825,7 @@ let listOfChampions = {
   "Zaahen": {
     Name: "Zaahen",
     Gender: "Male",
-    Position: "Top, Jungle",
+    Position: "Top",
     Species : "Darkin, Human",
     Resource: "Mana ",
     RangeType: "Melee",
@@ -1847,7 +1847,7 @@ let listOfChampions = {
   "Zed": {
     Name: "Zed",
     Gender: "Male",
-    Position: "Middle",
+    Position: "Jungle, Middle",
     Species : "Human, Magically Altered",
     Resource: "Energy",
     RangeType: "Melee",
@@ -1903,7 +1903,7 @@ let listOfChampions = {
     Name: "Zyra",
     Gender: "Female",
     Position: "Support",
-    Species : "Unknown",
+    Species : "Human, Plant, Other species",
     Resource: "Mana ",
     RangeType: "Ranged",
     Region: "Ixtal",
@@ -2286,9 +2286,11 @@ for (const champion in listOfChampions) {
     } else if (listOfChampions[champion]["Name"] == "Trundle"){
       p_species.innerHTML += "Iceborn, Troll";
     } else if (listOfChampions[champion]["Name"] == "Twitch"){
-      p_species.innerHTML += "Chemically Altered, Rat";
+      p_species.innerHTML += "Rat, Chemically Altered";
     } else if (listOfChampions[champion]["Name"] == "Yuumi"){
       p_species.innerHTML += "Cat, Magically Altered";
+    } else if (listOfChampions[champion]["Name"] == "Zyra"){
+      p_species.innerHTML += "Human, Plant";
     }
   } else {
     p_species.innerHTML += listOfChampions[champion]["Species"];
