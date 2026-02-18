@@ -2354,6 +2354,7 @@ for (const champion in listOfChampions) {
       undo.classList.remove('false');
       //console.log("disponible");
       cartesPresent();
+      updateCards();
     }
     });
     flip_card.addEventListener('click', function () {
@@ -2366,6 +2367,7 @@ for (const champion in listOfChampions) {
       undo.classList.remove('false');
       //console.log("disponible");
       cartesPresent();
+      updateCards();
       }
     });
     flip_card_back.addEventListener('click', function () {
@@ -2378,6 +2380,7 @@ for (const champion in listOfChampions) {
       undo.classList.remove('false');
       //console.log("disponible");
       cartesPresent();
+      updateCards();
       }
     });
   carteContainer.appendChild(flip_card);
@@ -2748,7 +2751,8 @@ undo.addEventListener('click', function(){
           undo.textContent = deletedCardArr[deletedCardArr.length - 1].toUpperCase();
       }
     }
-  } 
+  }
+  updateCards();
 });
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  UNDO ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
 let cartesArr = document.querySelectorAll('.flip-card');
@@ -3022,86 +3026,6 @@ checkBoxLeftArr.forEach(function(checkbox) {
     }
   });
 });
-
-/*
-checkBoxLeftArr.forEach(function(boite) {
-  //boite.addEventListener('mousedown', handleMouseDown);
-  //boite.addEventListener('mouseup', handleMouseUp);
-  //boite.addEventListener('mouseleave', handleMouseUp);
-  boite.addEventListener('change', function(){
-    if (boite.checked == false){
-      currentBoxValue = boite.value;
-      //console.log(currentBoxValue);
-      //console.log(boite);
-      for (const cartes in listOfChampions) {
-        championElement = listOfChampions[cartes];
-        //console.log("cartes: " + cartes);
-        //console.log(listOfChampions[cartes]);
-        //console.log(listOfChampions[cartes]['Gender'].includes(currentBoxValue));
-        //console.log(listOfChampions[cartes]['Position'].includes(currentBoxValue));
-        //console.log(listOfChampions[cartes]['Species'].includes(currentBoxValue));
-        //console.log(listOfChampions[cartes]['Resource'].includes(currentBoxValue));
-        //console.log(listOfChampions[cartes]['RangeType'].includes(currentBoxValue));
-        //console.log(listOfChampions[cartes]['Region'].includes(currentBoxValue));
-
-        if (championElement['Gender'].includes(currentBoxValue) ||
-          championElement['Position'].includes(currentBoxValue) ||
-          championElement['Species'].includes(currentBoxValue) ||
-          championElement['Resource'].includes(currentBoxValue) ||
-          championElement['RangeType'].includes(currentBoxValue) ||
-          championElement['Region'].includes(currentBoxValue) ||
-          championElement['Released'].toString().includes(currentBoxValue)
-        ) {
-          //console.log("cartes: " + cartes);
-          //console.log(listOfChampions[cartes]);
-          //console.log(listOfChampions[cartes]['Gender'].includes(currentBoxValue));
-          //console.log("cartes: " + cartes);
-          championASupprime = document.querySelector("." + cartes);
-          //console.log("championASupprime: " + championASupprime);
-          championASupprime.classList.add('none');
-          cartesPresent();
-        } else {
-          cartesPresent();
-        }
-      }
-    }
-    else if (boite.checked == true){
-      currentBoxValue = boite.value;
-      //console.log(currentBoxValue);
-      //console.log(boite);
-      for (const cartes in listOfChampions) {
-        championElement = listOfChampions[cartes];
-        //console.log("cartes: " + cartes);
-        //console.log(listOfChampions[cartes]);
-        //console.log(listOfChampions[cartes]['Gender'].includes(currentBoxValue));
-        //console.log(listOfChampions[cartes]['Position'].includes(currentBoxValue));
-        //console.log(listOfChampions[cartes]['Species'].includes(currentBoxValue));
-        //console.log(listOfChampions[cartes]['Resource'].includes(currentBoxValue));
-        //console.log(listOfChampions[cartes]['RangeType'].includes(currentBoxValue));
-        //console.log(listOfChampions[cartes]['Region'].includes(currentBoxValue));
-
-        if (championElement['Gender'].includes(currentBoxValue) ||
-          championElement['Position'].includes(currentBoxValue) ||
-          championElement['Species'].includes(currentBoxValue) ||
-          championElement['Resource'].includes(currentBoxValue) ||
-          championElement['RangeType'].includes(currentBoxValue) ||
-          championElement['Region'].includes(currentBoxValue) ||
-          championElement['Released'].toString().includes(currentBoxValue)
-        ) {
-          //console.log("cartes: " + cartes);
-          championASupprime = document.querySelector("." + cartes);
-          //console.log("championASupprime: " + championASupprime);
-          championASupprime.classList.remove('none');
-          cartesPresent();
-        } else {
-          cartesPresent();
-        }
-      }
-    }
-  });
-});
-*/
-
 
 let flipArr = document.querySelectorAll(".flip-card");
 let male = document.getElementById("gender_male");
@@ -3485,6 +3409,13 @@ function updateCards(){
     }
   }
 
+  for (const supprimer in deletedCardArr){
+    
+    if (deletedCardArr.length != 0){
+      let balise = document.querySelector("." + deletedCardArr[supprimer]);
+      balise.classList.add("none");
+    }
+  }
 
     flipArr.forEach(function(yes) {
     if(!yes.classList.contains("none")){
