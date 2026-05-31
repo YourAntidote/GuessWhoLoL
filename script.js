@@ -2447,7 +2447,7 @@ function selection(champion) {
   var img = document.createElement("img");
   var flip_card_back = document.createElement("div");
   var h1_name = document.createElement("h1");
-  var h2_name_back = document.createElement("h1");
+  var h2_name_back = document.createElement("h2");
   var hr_back = document.createElement("hr");
   h1_name.style.textShadow = "0px 0px 6px rgba(0, 0, 0, 1)";
   h2_name_back.style.textShadow = "0px 0px 6px rgba(0, 0, 0, 1)";
@@ -2549,7 +2549,7 @@ function selection(champion) {
 }
 
   // Call the function with a champion (e.g., 'Ahri')
-
+/*
 
 document.querySelectorAll('.flip-card').forEach(card => {
   let pressTimer;
@@ -2565,6 +2565,23 @@ document.querySelectorAll('.flip-card').forEach(card => {
     clearTimeout(pressTimer);
   });
 });
+*/
+document.querySelectorAll('.flip-card').forEach(card => {
+  card.addEventListener('contextmenu', function(ev) {
+    if (!isChampionSelected) {
+      ev.preventDefault();
+      alert('Champion selected with success!')
+      storeCardValue(card);
+      selection2.classList.remove('none');
+      return false;
+    } else {
+      ev.preventDefault();
+      alert('You have already selected a champion. You must Reset first.')
+      return false;
+    }
+  }, false);
+})
+
 function storeCardValue(cardElement) {
   // Extract the champion name from the card
   const cardHTML = cardElement.outerHTML;
@@ -2586,7 +2603,6 @@ function storeCardValue(cardElement) {
 }
 
 
-
 let arrow = document.querySelector(".arrow-button");
 let selection2 = document.querySelector('.selection');
 
@@ -2594,8 +2610,12 @@ arrow.addEventListener('click', function(){
 
   if (selection2.style.transform === 'translate(0px, -50%)') {
     selection2.style.transform = 'translate(-272px, -50%)';
+    arrow.classList.add('out');
+    arrow.classList.remove('in');
   } else {
     selection2.style.transform = 'translate(0px, -50%)';
+    arrow.classList.add('in');
+    arrow.classList.remove('out');
   }
 });
 
@@ -3180,8 +3200,8 @@ let count2025 = 0;
 let count2026 = 0;
 
 const genderList = [
-  { el: male, name: "Male",  count: () => countgMale },
-  { el: female, name: "Female",  count: () => countgFemale },
+  { el: male,   name: "Male",   count: () => countgMale },
+  { el: female, name: "Female", count: () => countgFemale },
   { el: otherg, name: "Other",  count: () => countgOther }
 ]
 
@@ -3212,12 +3232,12 @@ const speciesList = [
   { el: species_revenant,      name: "Revenant",         count: () => countsRevenant },
   { el: species_spirit,        name: "Spirit",           count: () => countsSpirit },
   { el: species_spiritualist,  name: "Spiritualist",     count: () => countsSpiritualist },
-  { el: species_undead,        name: "Undead",     count: () => countsUndead },
-  { el: species_unknown,       name: "Unknown",     count: () => countsUnknown },
-  { el: species_vastayan,      name: "Vastayan",     count: () => countsVastayan },
-  { el: species_void,          name: "Void-Being",     count: () => countsVoid  },
-  { el: species_yordle,        name: "Yordle",     count: () => countsYordle },
-  { el: species_otherSpecies,  name: "Other",     count: () => countsOther  }
+  { el: species_undead,        name: "Undead",           count: () => countsUndead },
+  { el: species_unknown,       name: "Unknown",          count: () => countsUnknown },
+  { el: species_vastayan,      name: "Vastayan",         count: () => countsVastayan },
+  { el: species_void,          name: "Void-Being",       count: () => countsVoid  },
+  { el: species_yordle,        name: "Yordle",           count: () => countsYordle },
+  { el: species_otherSpecies,  name: "Other",            count: () => countsOther  }
 ];
 
 const resourceList = [
