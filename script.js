@@ -823,6 +823,17 @@ let listOfChampions = {
     Released: 2013,
     img: "./champions/RiotX_ChampionList_lissandra.jpg",
   },
+    "Locke": {
+    Name: "Locke",
+    Gender: "Male",
+    Position: "Middle, Jungle",
+    Species : "Human",
+    Resource: "Mana ",
+    RangeType: "Melee",
+    Region: "Demacia",
+    Released: 2026,
+    img:   "./champions/RiotX_ChampionList_locke.jpg",
+  },
   "Lucian": {
     Name: "Lucian",
     Gender: "Male",
@@ -1997,6 +2008,7 @@ var pictureUrls = [
   "./champions/RiotX_ChampionList_leona.jpg",
   "./champions/RiotX_ChampionList_lillia.jpg",
   "./champions/RiotX_ChampionList_lissandra.jpg",
+  "./champions/RiotX_ChampionList_locke.jpg",
   "./champions/RiotX_ChampionList_lucian.jpg",
   "./champions/RiotX_ChampionList_lulu.jpg",
   "./champions/RiotX_ChampionList_lux.jpg",
@@ -2390,6 +2402,7 @@ for (const champion in listOfChampions) {
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  CARTES ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
 
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvTEST OKAY ???vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
+/*
 document.addEventListener('DOMContentLoaded', function() {
   let timer;
   let clickedCheckbox = null;
@@ -2436,7 +2449,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
-
+*/
 let select = document.querySelector(".selection");
 
 
